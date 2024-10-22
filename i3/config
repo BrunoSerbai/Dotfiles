@@ -1,31 +1,36 @@
+#--------------------------------------------------
 #
-# ██╗██████╗ ██╗    ██╗███╗   ███╗
-# ██║╚════██╗██║    ██║████╗ ████║
-# ██║ █████╔╝██║ █╗ ██║██╔████╔██║
-# ██║ ╚═══██╗██║███╗██║██║╚██╔╝██║
-# ██║██████╔╝╚███╔███╔╝██║ ╚═╝ ██║
-# ╚═╝╚═════╝  ╚══╝╚══╝ ╚═╝     ╚═╝
+#    ██╗██████╗ ██╗    ██╗███╗   ███╗
+#    ██║╚════██╗██║    ██║████╗ ████║
+#    ██║ █████╔╝██║ █╗ ██║██╔████╔██║
+#    ██║ ╚═══██╗██║███╗██║██║╚██╔╝██║
+#    ██║██████╔╝╚███╔███╔╝██║ ╚═╝ ██║
+#    ╚═╝╚═════╝  ╚══╝╚══╝ ╚═╝     ╚═╝
 #
+#--------------------------------------------------
+
+# Documentation: https://i3wm.org/docs/
 
 # Defines the modifier button
  set $mod Mod1
 
-#---------------------------------------------
+
+#--------------------------------------------------
 # FONTS
-#---------------------------------------------
+#--------------------------------------------------
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:terminus 12
+font pango:terminus 13
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
 
 
-#---------------------------------------------
+#--------------------------------------------------
 # PROGRAMS START
-#---------------------------------------------
+#--------------------------------------------------
 
 # Start a terminal
 bindsym $mod+Return exec kitty
@@ -34,7 +39,7 @@ bindsym $mod+Return exec kitty
 #bindsym $mod+d exec --no-startup-id dmenu_run
 
 # A more modern dmenu replacement is rofi:
-bindsym $mod+d exec --no-startup-id rofi -show drun -show-icons
+#bindsym $mod+d exec --no-startup-id rofi -show drun -show-icons
 
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
@@ -56,32 +61,59 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 
-#---------------------------------------------
+#--------------------------------------------------
 # CUSTOM PROGRAMS START
-#---------------------------------------------
+#--------------------------------------------------
 
 # Wallpaper manager nitrogen
 exec --no-startup-id nitrogen --restore
 
 # Torrent manager Qbittorent
-exec --no-startup-id qbittorrent
+#exec --no-startup-id qbittorrent
 
 # File syncronization across devices with Syncthing
-exec --no-startup-id syncthing --no-browser
+#exec --no-startup-id syncthing --no-browser
 
 # Monitor color change program Redshift
-#exec --no-startup-id  redshift -l -23:-51 -t 6500:2300 -b 1.0:0.8
+#exec --no-startup-id  redshift -l -23:-51 -t 6500:2050 -b 1.0:0.8
 
 # Picom is a compositor for X11, it allows transparency and fading
 exec_always picom --config ~/.config/picom/picom.conf
 
 # LED on the Cooler Master Devastator II keyboard
-exec --no-startup-id xmodmap -e 'add mod3 = Scroll_Lock'
+#exec --no-startup-id xmodmap -e 'add mod3 = Scroll_Lock'
+
+# Set the keyboard repeat rate: xset r rate <repeat delay> <repeat speed>
+#exec --no-startup-id xset r rate 250 30
+
+# Set the keyboard layout to portuguese from Brazil
+#exec setxkbmap -layout br,pt
+
+# Shutdown the computer
+#exec --no-startup-id shutdown 1:00 --no-wall
+
+# Start Polybar
+exec ~/.config/polybar/launch_polybar.sh
+
+# Custom rofi themes from: https://github.com/adi1090x/rofi
+bindsym $mod+d exec --no-startup-id ~/.config/rofi/launchers/type-2/launcher.sh
+
+# Set new borders with Xborders from: https://github.com/deter0/xborder
+# Point at the config file with the -c flag
+exec ~/.config/xborder/xborders -c ~/.config/xborder/config.json
+
+# OR
+
+# JUST SET THE XBORDERS CONFIGURATION WITH FLAGS
+# exec ~/.config/xborder/xborders  --border-radius 12 --border-rgba "#644DF8"
+
+# Start keepassXC password manager
+#exec --no-startup-id keepassxc
 
 
-#---------------------------------------------
-# VOLUME BIDINGS
-#---------------------------------------------
+#--------------------------------------------------
+# VOLUME BINDINGS
+#--------------------------------------------------
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -95,9 +127,9 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -3% && $refresh_i3status
 
 
-#---------------------------------------------
+#--------------------------------------------------
 # FOCUSED WINDOW
-#---------------------------------------------
+#--------------------------------------------------
 
 # Kill focused window
 bindsym $mod+Shift+q kill
@@ -150,9 +182,9 @@ bindsym $mod+a focus parent
 bindsym $mod+space focus mode_toggle
 
 
-#---------------------------------------------
+#--------------------------------------------------
 # WORKSPACES
-#---------------------------------------------
+#--------------------------------------------------
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -199,9 +231,9 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 
-#---------------------------------------------
+#--------------------------------------------------
 # FLOATING WINDOWS
-#---------------------------------------------
+#--------------------------------------------------
 
 # Toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -210,9 +242,9 @@ bindsym $mod+Shift+space floating toggle
 floating_modifier $mod
 
 
-#---------------------------------------------
+#--------------------------------------------------
 # RESIZE FLOATING WINDOWS
-#---------------------------------------------
+#--------------------------------------------------
 
 # Enter resize mode
 bindsym $mod+r mode "resize"
@@ -243,52 +275,60 @@ mode "resize" {
 }
 
 
-#---------------------------------------------
+#--------------------------------------------------
 # I3 BAR
-#---------------------------------------------
+#--------------------------------------------------
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
+# Uncomment the bar settings for usage
 
-bar {
-        # Tells i3 to use the i3status config file as the bar
-        status_command i3status -c ~/.config/i3status/i3status.conf
+#bar {
+#        # Set the position of the bar
+#        position bottom
+#
+#        # Tells i3 to use the i3status config file for the bar
+#        status_command i3status -c ~/.config/i3status/i3status.conf
+#
+#        # Transparency
+#        i3bar_command i3bar --transparency
+#
+#        # Height in pixels
+#        height 28
+#
+#        # Set the font and size
+#        font pango:terminus 15
+#
+#        # Hides the bar while not pressing the mod button
+#        # mode hide
+#        # hidden_state hide
+#        # modifier Mod1
+#
+#        # Tray padding (2 by default)
+#        tray_padding 2
+#
+#        # Workspace buttons
+#        workspace_buttons yes
+#
+#        # Defines how the separator looks like
+#        #separator_symbol "|"
+#
+#        # Specifies whether workspace buttons shouls be shown or not
+#        workspace_buttons yes
+#
+#
+#        # Keep the bar hidden
+#        mode hide
+#
+#        colors {
+#           background #0000251A # The last two digits defines the transparency of the bar
+#           #statusline #00000000
+#           #separator #000000
+#        }
+#}
 
-        # Transparency
-        i3bar_command i3bar --transparency
 
-        # Height in pixels
-        height 25
-
-        # Hides the bar while not pressing the mod button
-        # mode hide
-        # hidden_state hide
-        # modifier Mod1
-
-        # Tray padding (2 by default)
-        tray_padding 2
-
-        # Workspace buttons
-        workspace_buttons yes
-
-        # Defines how the separator looks like
-        #separator_symbol "|"
-
-        # Specifies whether workspace buttons shouls be shown or not
-        workspace_buttons yes
-
-        # Colors
-        colors {
-           background #0000254d # The last two digits dictate the transparency of the bar
-           #statusline #00000000
-           #separator #000000
-        }
-}
-
-
-#---------------------------------------------
+#--------------------------------------------------
 # GAPS
-#---------------------------------------------
+#--------------------------------------------------
 
 # Window gap size
 gaps inner 15
@@ -298,20 +338,31 @@ gaps outer 0
 smart_gaps off
 
 
-#---------------------------------------------
+#--------------------------------------------------
 # BORDERS
-#---------------------------------------------
+#--------------------------------------------------
+
+# Better borders with xborders: https://github.com/deter0/xborder
 
 # Activate smart borders (borders if there is more than one window)
 smart_borders on
 
-# Hide edge borders only if there is one window with no gaps
+# Defines a border around windows, use pixel 0 to hide the border
+default_border pixel 0
+
+# Hide edge borders if there is only one window with no gaps
 hide_edge_borders smart_no_gaps
 
-# Eliminates title bars on individual windows
-default_border pixel 0
+# Border and title colors, more specific the second value
+client.focused #859900 #644DF8 #fdf6e3 #859900
+
+
+#--------------------------------------------------
+# TITLE BARS
+#--------------------------------------------------
 
 # Enable window title icons for all windows
 for_window [all] title_window_icon on
+
 
 
