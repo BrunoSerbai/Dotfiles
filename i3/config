@@ -337,6 +337,9 @@ mode "resize" {
 gaps inner 15
 gaps outer 0
 
+# Gap for the bar 
+gaps bottom 29 
+
 # Only enable gaps on a workspace when there is at least two containers
 smart_gaps off
 
