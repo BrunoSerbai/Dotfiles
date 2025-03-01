@@ -65,9 +65,6 @@ exec --no-startup-id nm-applet
 # CUSTOM PROGRAMS START
 #--------------------------------------------------
 
-# Wallpaper manager nitrogen
-exec --no-startup-id nitrogen --restore
-
 # Torrent manager Qbittorent
 #exec --no-startup-id qbittorrent
 
@@ -75,13 +72,10 @@ exec --no-startup-id nitrogen --restore
 #exec --no-startup-id syncthing --no-browser
 
 # Monitor color change program Redshift
-#exec --no-startup-id  redshift -l -23:-51 -t 6500:2050 -b 1.0:0.8
+#exec --no-startup-id  redshift -l -23:-51 -t 6500:2300 -b 1.0:0.8
 
-# Picom is a compositor for X11, it allows transparency and fading
+# Picom, a compositor for X11, it allows transparency and fading
 exec_always picom --config ~/.config/picom/picom.conf
-
-# LED on the Cooler Master Devastator II keyboard
-#exec --no-startup-id xmodmap -e 'add mod3 = Scroll_Lock'
 
 # Set the keyboard repeat rate: xset r rate <repeat delay> <repeat speed>
 #exec --no-startup-id xset r rate 250 30
@@ -104,11 +98,17 @@ exec ~/.config/xborder/xborders -c ~/.config/xborder/config.json
 
 # OR
 
-# JUST SET THE XBORDERS CONFIGURATION WITH FLAGS
+# JUST SET THE XBORDERS CONFIGURATION USING FLAGS
 # exec ~/.config/xborder/xborders  --border-radius 12 --border-rgba "#644DF8"
 
 # Start keepassXC password manager
-#exec --no-startup-id keepassxc
+exec --no-startup-id keepassxc
+
+# Wallpaper manager nitrogen
+exec --no-startup-id nitrogen --restore
+
+# Authentication agent Polkit (From KDE Plasma)
+exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1 &
 
 
 #--------------------------------------------------
@@ -138,7 +138,8 @@ bindsym $mod+Shift+q kill
 bindsym $mod+j focus left
 bindsym $mod+k focus down
 bindsym $mod+l focus up
-bindsym $mod+ccedilla focus right
+#bindsym $mod+ccedilla focus right
+bindsym $mod+semicolon focus right
 
 # Alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -150,7 +151,8 @@ bindsym $mod+Right focus right
 bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move down
 bindsym $mod+Shift+l move up
-bindsym $mod+Shift+ccedilla move right
+#bindsym $mod+Shift+ccedilla move right
+bindsym $mod+Shift+semicolon move right
 
 # Alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -260,7 +262,8 @@ mode "resize" {
         bindsym j resize shrink width 10 px or 10 ppt
         bindsym k resize grow height 10 px or 10 ppt
         bindsym l resize shrink height 10 px or 10 ppt
-        bindsym ccedilla resize grow width 10 px or 10 ppt
+        #bindsym ccedilla resize grow width 10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -363,6 +366,3 @@ client.focused #859900 #644DF8 #fdf6e3 #859900
 
 # Enable window title icons for all windows
 for_window [all] title_window_icon on
-
-
-
