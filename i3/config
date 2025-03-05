@@ -65,50 +65,47 @@ exec --no-startup-id nm-applet
 # CUSTOM PROGRAMS START
 #--------------------------------------------------
 
-# Torrent manager Qbittorent
+# Qbittorrent - Torrent manager 
 #exec --no-startup-id qbittorrent
 
-# File syncronization across devices with Syncthing
+# Syncthing - File syncronization across devices 
 #exec --no-startup-id syncthing --no-browser
 
-# Monitor color change program Redshift
+# Redshift - Monitor color manager
 #exec --no-startup-id  redshift -l -23:-51 -t 6500:2300 -b 1.0:0.8
 
-# Picom, a compositor for X11, it allows transparency and fading
+# Picom - Compositor for X11
 exec_always picom --config ~/.config/picom/picom.conf
 
-# Set the keyboard repeat rate: xset r rate <repeat delay> <repeat speed>
+# Keyboard repeat rate - xset r rate <repeat delay> <repeat speed>
 #exec --no-startup-id xset r rate 250 30
 
-# Set the keyboard layout to portuguese from Brazil
+# Keyboard layout - Portuguese from Brazil
 #exec setxkbmap -layout br,pt
 
-# Shutdown the computer
+# Shutdown - Shutdonw the computer at a specific time
 #exec --no-startup-id shutdown 1:00 --no-wall
 
-# Start Polybar
+# Polybar - Customizable bar
 exec ~/.config/polybar/launch_polybar.sh
 
-# Custom rofi themes from: https://github.com/adi1090x/rofi
+# Rofi - Custom themes from: https://github.com/adi1090x/rofi
 bindsym $mod+d exec --no-startup-id ~/.config/rofi/launchers/type-2/launcher.sh
 
-# Set new borders with Xborders from: https://github.com/deter0/xborder
-# Point at the config file with the -c flag
+# Xborders - Source: https://github.com/deter0/xborder
 exec ~/.config/xborder/xborders -c ~/.config/xborder/config.json
 
-# OR
-
-# JUST SET THE XBORDERS CONFIGURATION USING FLAGS
-# exec ~/.config/xborder/xborders  --border-radius 12 --border-rgba "#644DF8"
-
-# Start keepassXC password manager
+# KeepassXC - password manager
 exec --no-startup-id keepassxc
 
-# Wallpaper manager nitrogen
+# Nitrogen - Wallpaper manager 
 exec --no-startup-id nitrogen --restore
 
-# Authentication agent Polkit (From KDE Plasma)
+# Polkit - Authentication agent (From KDE Plasma)
 exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1 &
+
+# Xrandr - Multi monitor manager
+exec --no-startup-id xrandr --output HDMI-A-0 --auto --left-of eDP
 
 
 #--------------------------------------------------
