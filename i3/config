@@ -84,15 +84,15 @@ exec_always picom --config ~/.config/picom/picom.conf
 #exec setxkbmap -layout br,pt
 
 # Shutdown - Shutdonw the computer at a specific time
-#exec --no-startup-id shutdown 1:00 --no-wall
+exec --no-startup-id shutdown 1:00 --no-wall
 
-# Polybar - Customizable bar
+# Polybar - Customizable status bar
 exec ~/.config/polybar/launch_polybar.sh
 
-# Rofi - Custom themes from: https://github.com/adi1090x/rofi
+# Rofi - A window switcher, application launcher and dmenu replacement. Custom themes from: https://github.com/adi1090x/rofi
 bindsym $mod+d exec --no-startup-id ~/.config/rofi/launchers/type-2/launcher.sh
 
-# Xborders - Source: https://github.com/deter0/xborder
+# Xborders - Active window border replacement. Source: https://github.com/deter0/xborder
 exec ~/.config/xborder/xborders -c ~/.config/xborder/config.json
 
 # KeepassXC - password manager
@@ -104,8 +104,14 @@ exec --no-startup-id nitrogen --restore
 # Polkit - Authentication agent (From KDE Plasma)
 exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1 &
 
-# Xrandr - Multi monitor manager
-exec --no-startup-id xrandr --output HDMI-A-0 --auto --left-of eDP
+# Xrandr - Multi monitor manager. Documentation: https://fedoramagazine.org/using-i3-with-multiple-monitors/
+#exec --no-startup-id xrandr --output HDMI-A-0 --auto --left-of eDP
+
+# Easyeffects - Audio effects for PipeWire applications
+exec --no-startup-id easyeffects -w 
+
+# Green With Envy - Nvidia GPU Overclock
+exec --no-startup-id gwe --hide-window
 
 
 #--------------------------------------------------
