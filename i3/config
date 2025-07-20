@@ -84,7 +84,7 @@ exec_always picom --config ~/.config/picom/picom.conf
 #exec setxkbmap -layout br,pt
 
 # Shutdown - Shutdonw the computer at a specific time
-exec --no-startup-id shutdown 1:00 --no-wall
+#exec --no-startup-id shutdown 1:00 --no-wall
 
 # Polybar - Customizable status bar
 exec ~/.config/polybar/launch_polybar.sh
@@ -96,7 +96,7 @@ bindsym $mod+d exec --no-startup-id ~/.config/rofi/launchers/type-2/launcher.sh
 exec ~/.config/xborder/xborders -c ~/.config/xborder/config.json
 
 # KeepassXC - password manager
-exec --no-startup-id keepassxc
+#exec --no-startup-id keepassxc
 
 # Nitrogen - Wallpaper manager 
 exec --no-startup-id nitrogen --restore
@@ -108,10 +108,10 @@ exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1 &
 #exec --no-startup-id xrandr --output HDMI-A-0 --auto --left-of eDP
 
 # Easyeffects - Audio effects for PipeWire applications
-exec --no-startup-id easyeffects -w 
+#exec --no-startup-id easyeffects -w 
 
 # Green With Envy - Nvidia GPU Overclock
-exec --no-startup-id gwe --hide-window
+#exec --no-startup-id gwe --hide-window
 
 
 #--------------------------------------------------
